@@ -1,18 +1,17 @@
 const { Router } = require("express");
-
-const CartsController = require("../controllers/CartsController");
-const ensureAuthenticated = require("../middlewares/ensureAuthenticated");
-const ensureIsAdmin = require("../middlewares/ensureIsAdmin");
+const CartsController = require("../Controllers/CartsController");
+const authenticated = require("../middleware/Authenticated");
+const isAdmin = require("../middleware/isAdmin");
 
 const cartsRoutes = Router();
 
 const cartsController = new CartsController();
 
-cartsRoutes.use(ensureAuthenticated);
+cartsRoutes.use(authenticated);
 
 cartsRoutes.post("/", cartsController.create);
 cartsRoutes.get("/:id", cartsController.show);
-cartsRoutes.get("/",ensureIsAdmin, cartsController.index);
+cartsRoutes.get("/",isAdmin, cartsController.index);
 cartsRoutes.delete("/:id", cartsController.delete);
 cartsRoutes.put("/", cartsController.update);
 
