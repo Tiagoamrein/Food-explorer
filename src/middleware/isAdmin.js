@@ -1,4 +1,4 @@
-const knex = require('../database/knex');
+const knex = require('../database')
 const AppError = require('../utils/AppError');
 
 async function isAdmin(request, response, next) {
