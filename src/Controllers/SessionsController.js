@@ -1,7 +1,7 @@
 const { compare } = require("bcryptjs");
 const { sign } = require("jsonwebtoken");
 
-const knex = require("../database/");
+const knex = require("../database");
 const AppError = require("../utils/AppError");
 const authConfig = require("../configs/auth");
 
@@ -32,4 +32,4 @@ class SessionsController {
   }
 }
 
-module.exports = SessionsController;
+module.exports = SessionsController
