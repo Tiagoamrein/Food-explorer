@@ -3,8 +3,8 @@ const multer = require("multer");
 const uploadConfig = require("../configs/upload");
 
 const DishesController = require("../Controllers/DishesController");
-const authenticated= require("../middleware/Authenticated");
-const isAdmin = require("../middleware/isAdmin");
+const authenticated= require("../middlewares/ensureAuthenticated");
+const isAdmin = require("../middlewares/ensureIsAdmin");
 
 const dishesRoutes = Router();
 const upload = multer(uploadConfig.MULTER);

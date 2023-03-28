@@ -32,4 +32,4 @@ class SessionsController {
   }
 }
 
-module.exports = SessionsController
+module.exports = SessionsController;

@@ -1,9 +1,10 @@
 const { Router } = require("express")
 
-const usersRoutes = Router();
-const UsersController = require("../Controllers/UsersController")
-const authenticated =  require("../middleware/Authenticated")
 
+const UsersController = require("../Controllers/UsersController")
+const authenticated =  require("../middlewares/ensureAuthenticated")
+
+const usersRoutes = Router();
 const userController = new UsersController();
 
 usersRoutes.post("/", userController.create)

@@ -1,16 +1,16 @@
 const knex = require('../database')
 const AppError = require('../utils/AppError');
 
-async function isAdmin(request, response, next) {
+async function ensureIsAdmin(request, response, next) {
   const user_id = request.user.id;
 
   const user = await knex("users").where({id: user_id}).first();
 
   if (!user.isAdmin) {
-    throw new AppError("user não autorizado", 401);
+    throw new AppError("user unauthorized", 401)
   }
 
   next();
 }
 
-module.exports = isAdmin;
+module.exports = ensureIsAdmin;
