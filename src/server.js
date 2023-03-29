@@ -1,7 +1,7 @@
 require("express-async-errors")
 const cors = require("cors");
 const express = require ("express")
-const database = require("./database/sqlite")
+const sqliteConnection = require("./database/sqlite")
 const routes = require("./routes")
 const bodyParser = require("body-parser")
 
@@ -10,8 +10,7 @@ const AppError = require("./utils/AppError")
 const app = express()
 
 
-database()
-
+sqliteConnection()
 app.use(cors());
 app.use(express.json()) 
 app.use(bodyParser.json());

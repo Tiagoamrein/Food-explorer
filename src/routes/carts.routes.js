@@ -1,7 +1,7 @@
 const { Router } = require("express");
 const CartsController = require("../Controllers/CartsController");
 const authenticated = require("../middlewares/ensureAuthenticated");
-const isAdmin = require("../middlewares/ensureIsAdmin");
+const ensureIsAdmin = require("../middlewares/ensureIsAdmin");
 
 const cartsRoutes = Router();
 
@@ -11,7 +11,7 @@ cartsRoutes.use(authenticated);
 
 cartsRoutes.post("/", cartsController.create);
 cartsRoutes.get("/:id", cartsController.show);
-cartsRoutes.get("/",isAdmin, cartsController.index);
+cartsRoutes.get("/",ensureIsAdmin, cartsController.index);
 cartsRoutes.delete("/:id", cartsController.delete);
 cartsRoutes.put("/", cartsController.update);
 
