@@ -17,7 +17,7 @@ class CartsController {
         title: order.title,
         quantity: order.quantity,
         cart_id,
-        dish_id: order.id
+        dish_id
       }
     });
 
